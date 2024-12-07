@@ -10,6 +10,7 @@
     href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
     rel="stylesheet"
 />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
 <body>
   <header>
@@ -33,20 +34,40 @@
   <div class="login-container">
 
     <form  class="login-form">
-      <h3>Log in</h3>
+      <div id="email-div">
+        <h3>Log in</h3>
       <h5>Don't have a T-Mobile ID? <a href="#">Sign up <span><i class="ri-arrow-right-s-line"></i></span></a></h5>
       <fieldset class="email-input">
         <input type="text" name="email-phone" id="email-phone" placeholder="Email, or phone number">
         <label for="email-phone">Email, or phone number</label>
       </fieldset>
-      <button type="submit" disabled class="next-btn">
+      <button id="next-btn" type="button" disabled class="next-btn">
         Next
       </button>
       <p class="guest-link">
         <a href="#">Don't want to Login? Pay as a guest</a>
       </p>
+      </div>
+      <div id="password-div" class="displayNone" >
+        <h3>Welcome!</h3>
+      <p id="user-info"></p>
+      <fieldset class="pass-input">
+        <input type="password" name="password" id="password" placeholder="Password">
+        <label for="password">Password</label>
+        <i class="far fa-eye" id="togglePassword"></i>
+      </fieldset>
+      <button type="submit" disabled class="login-btn">
+        Log in
+      </button>
+      <p class="login-help">
+        <a href="#">Need help logging in?</a>
+      </p>
+      </div>
     </form>
-    <div class="qr-code-container">
+    <div id="back-btn" class="back-btn displayNone ">
+     <p><span><i class="ri-arrow-left-s-line"></i></span>Back</p>
+    </div>
+    <div id="qr-code-container" class="qr-code-container">
       <div>
         <h3>Try out T Life today</h3>
       <p>Scan the QR code for all your favorite T-Mobile benefits and features, all in one app.</p>
@@ -55,6 +76,7 @@
         <img src="./assets/qr-code.svg" alt="">
       </div>
     </div>
+
   </div>
   <footer>
     <div class="footer-top">
@@ -154,6 +176,20 @@ useremail.addEventListener('input', () => {
     nextBtn.setAttribute('disabled', '');
   }
 });
+    const userpass=document.querySelector('#password');
+const loginBtn=document.querySelector('.login-btn');
+
+userpass.addEventListener('input', () => {
+  const passwordValue = userpass.value.trim();
+
+  if (passwordValue.length >= 8) {
+    loginBtn.classList.add('next-btn-active');
+    loginBtn.removeAttribute('disabled');
+  } else {
+    loginBtn.classList.remove('next-btn-active');
+    loginBtn.setAttribute('disabled', '');
+  }
+});
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -184,5 +220,50 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
   </script>
+ <script>
+  // Select elements
+  const emailDiv = document.getElementById('email-div');
+  const passwordDiv = document.getElementById('password-div');
+  const qrCodeContainer = document.getElementById('qr-code-container');
+  const backBtn = document.getElementById('back-btn');
+  const emailPhoneInput = document.getElementById('email-phone');
+  const nextButn = document.getElementById('next-btn');
+  const userInfo = document.getElementById('user-info');
+
+  // Enable Next button when input has value
+  emailPhoneInput.addEventListener('input', () => {
+    nextButn.disabled = !emailPhoneInput.value.trim();
+  });
+
+  // Next Button Click Handler
+  nextButn.addEventListener('click', () => {
+    emailDiv.classList.add('displayNone');
+    qrCodeContainer.classList.add('displayNone');
+    passwordDiv.classList.remove('displayNone');
+    backBtn.classList.remove('displayNone');
+    userInfo.textContent = emailPhoneInput.value;
+  });
+
+  // Back Button Click Handler
+  backBtn.addEventListener('click', () => {
+    emailDiv.classList.remove('displayNone');
+    qrCodeContainer.classList.remove('displayNone');
+    passwordDiv.classList.add('displayNone');
+    backBtn.classList.add('displayNone');
+  });
+</script>
+<script>
+  const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#password');
+
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+</script>
+ 
 </body>
 </html>

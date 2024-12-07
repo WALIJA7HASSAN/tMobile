@@ -41,6 +41,7 @@ img{
   width: 100%;
   height: 100%;
 }
+
 .header-top{
   font-family: 'SF Pro Text',  Helvetica, sans-serif;
   padding: 16px 20px;
@@ -94,10 +95,12 @@ text-align: left;
   gap: 1rem;
 }
 .login-form{
-  display: grid;
-  gap: 1.5rem;
   width: 100%;
   max-width: 440px;
+}
+.login-form > div{
+  display: grid;
+  gap: 1.5rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 32px;
   border-radius: 12px;
@@ -108,6 +111,9 @@ text-align: left;
   font-size: 32px;
   font-family: 'Tele Neo Web',  Helvetica, sans-serif;
   color: #262626;
+  
+}
+.login-form > div:first-child h3{
   margin-bottom: 1rem;
 }
 .login-form h5{
@@ -128,27 +134,35 @@ text-align: left;
   width: 100%;
   height: 100%;
 }
-.email-input input{
+ .email-input input,.pass-input input{
   padding: 14px;
   border-radius: 5px;
   border: 1px solid black;
   font-weight: 600;
 }
 
-.email-input input::placeholder{
+.email-input input::placeholder,.pass-input input::placeholder{
   font-size: 16px;
   font-weight: 400;
 }
-.email-input{
+.email-input,.pass-input {
   border: transparent;
   border-radius: 8px;
   padding: 2px;
   position: relative;
 }
-.email-input:focus-within{
+#togglePassword{
+  margin-left: -30px; 
+cursor: pointer;
+position: absolute;
+top: 15px;
+right: 10px;
+color: #6A6A6A;
+}
+.email-input:focus-within,.pass-input:focus-within{
   border: 2px solid black;
 }
-.email-input label{
+.email-input label,.pass-input label{
   position: absolute;
   top: 30%;
   left: 10px;
@@ -159,11 +173,11 @@ text-align: left;
   display: none;
   transition: all .3s ease;
 }
-.login-form input:not(:placeholder-shown) + label {
+.login-form input:not(:placeholder-shown) + label,.pass-input input:not(:placeholder-shown) + label {
   transform: translateY(-100%);
   display: block;
 }
-.next-btn{
+.next-btn,.login-btn{
   color: #6A6A6A;
   background: #F5F5F5;
   font-size: 16px;
@@ -180,10 +194,27 @@ text-align: left;
 .next-btn-active:hover{
   background: #A7005A;
 }
+.login-help a{
+  color: #e20074;
+  font-weight: 600;
+}
 .guest-link a{
 text-decoration: underline;
 font-size: 12px;
 color: black;
+}
+.back-btn{
+  color: #121212;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  transition: all .2s ease;
+  padding-block: 30px;
+  width: 100%;
+  max-width: 440px;
+}
+.back-btn :hover{
+  color: #414141;
 }
 .qr-code-container{
   display: none;
@@ -274,7 +305,7 @@ margin: 0 auto;
 .login-form h3{
   font-size: 48px;
 }
-.next-btn{
+.next-btn,.login-btn{
   max-width: 170px;
 }
 .qr-code-container{
@@ -334,4 +365,9 @@ margin: 0 auto;
   grid-column: 2/4;
 }
 
+}
+
+
+.displayNone{
+  display: none !important;
 }
