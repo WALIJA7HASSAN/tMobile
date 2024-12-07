@@ -1,0 +1,338 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('./Fonts/SFProText-Regular.4384e31191078baf.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tele Grotesk';
+  src: url('./Fonts/Tele-Grotesk-Fet.a8f70a6ca5f596bb.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tele Neo Web';
+  src: url('./Fonts/TeleNeoWeb-ExtraBold.cae7bd8ac2a2f152.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+html{
+  scroll-behavior: smooth;
+}
+body{
+  font-size: 12px;
+  font-family: 'SF Pro Text',  Helvetica, sans-serif;
+}
+a{
+  text-decoration: none;
+}
+button{
+  border: none;
+  background: none;
+}
+img{
+  width: 100%;
+  height: 100%;
+}
+.header-top{
+  font-family: 'SF Pro Text',  Helvetica, sans-serif;
+  padding: 16px 20px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.header-logo img{
+  max-width: 40px;
+}
+.header-content{
+  color: #121212;
+}
+.header-content h4{
+  font-weight: 600;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+.header-btn{
+  font-size: 16px;
+  color: #e20074;
+  font-weight: 600;
+}
+.header-bottom{
+background: black;
+padding: 10px 25px;
+text-align: left;
+}
+.header-bottom a{
+  font-size: 16px;
+  font-family: 'Tele Grotesk',  Helvetica, sans-serif;
+  color: white;
+  transition: all .3s ease;
+}
+.header-bottom a:hover{
+  color: #e20074;
+}
+.login-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px 16px;
+  padding-top: 70px;
+  gap: 1rem;
+}
+.login-form{
+  display: grid;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 32px;
+  border-radius: 12px;
+  font-size: 16px;
+ 
+}
+.login-form h3{
+  font-size: 32px;
+  font-family: 'Tele Neo Web',  Helvetica, sans-serif;
+  color: #262626;
+  margin-bottom: 1rem;
+}
+.login-form h5{
+  color: #212529;
+  font-size: 16px;
+}
+.login-form h5 a{
+  color: #e20074;
+}
+.login-form h5 span{
+  transition: all .5s ease;
+  display: inline-block;
+}
+.login-form h5 a:hover span{
+  transform: translateX(10px);
+}
+.login-form input{
+  width: 100%;
+  height: 100%;
+}
+.email-input input{
+  padding: 14px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-weight: 600;
+}
+
+.email-input input::placeholder{
+  font-size: 16px;
+  font-weight: 400;
+}
+.email-input{
+  border: transparent;
+  border-radius: 8px;
+  padding: 2px;
+  position: relative;
+}
+.email-input:focus-within{
+  border: 2px solid black;
+}
+.email-input label{
+  position: absolute;
+  top: 30%;
+  left: 10px;
+  font-size: 12px;
+  color: #121212;
+  background: white;
+  padding: 2px;
+  display: none;
+  transition: all .3s ease;
+}
+.login-form input:not(:placeholder-shown) + label {
+  transform: translateY(-100%);
+  display: block;
+}
+.next-btn{
+  color: #6A6A6A;
+  background: #F5F5F5;
+  font-size: 16px;
+  padding: 12px 16px;
+  font-weight: 600;
+  transition: all .5s ease;
+  border-radius: 5px;
+  margin-bottom: 1.3rem;
+}
+.next-btn-active{
+  color: white;
+  background: #e20074;
+}
+.next-btn-active:hover{
+  background: #A7005A;
+}
+.guest-link a{
+text-decoration: underline;
+font-size: 12px;
+color: black;
+}
+.qr-code-container{
+  display: none;
+  gap: .5rem;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 32px;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #212529;
+}
+.qr-code-container h3{
+  font-size: 28px;
+  font-family: 'Tele Neo Web',  Helvetica, sans-serif;
+}
+.qr-img{
+  max-width: 152px;
+}
+footer{
+  background: #333333;
+}
+.footer-top{
+  padding: 15px;
+  display: grid;
+  gap: 20px;
+  max-width: 822px;
+  margin: 0 auto;
+
+}
+.footer-top #svg-links{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-family: 'Tele Grotesk',  Helvetica, sans-serif;
+  font-size: 16px;
+  transition: all .3s ease;
+  white-space: nowrap;
+}
+
+.footer-top img,.footer-top svg{
+  max-width: 15px;
+}
+#svg-links:hover,.footer-top a:hover img{
+  color: #e20074;
+  fill: #e20074;
+}
+.footer-bottom{
+padding: 15px;
+background-color: #1c1c1c;
+border-top: 1px solid white;
+}
+.footer-bottom a{
+  font-family: 'SF Pro Text',  Helvetica, sans-serif;
+  color: white;
+  font-size: 14px;
+  transition: all .3s ease;
+  
+
+}
+.footer-bottom a:hover{
+  color: #e20074;
+}
+.footer-bottom ul{
+  max-width: 822px;
+margin: 0 auto;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+ 
+}
+.footer-bottom p{
+  padding: 30px 15px;
+  text-align: center;
+  padding-top: 40px;
+}
+.footer-bottom p a{
+  font-size: 10px;
+  transition: all .3s ease;
+  text-align: center;
+}
+.footer-bottom p a:hover{
+  color: #e20074;
+}
+@media screen and (min-width:600px){
+.login-form h3{
+  font-size: 48px;
+}
+.next-btn{
+  max-width: 170px;
+}
+.qr-code-container{
+  display: flex;
+  align-items: center;
+}
+.qr-img{
+  max-width: 100px;
+}
+.header-top{
+  display: none;
+}
+}
+@media screen and (min-width:768px){
+.footer-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 30px 15px;
+}
+.footer-bottom ul{
+  grid-template-columns: repeat(4,1fr);
+  justify-content: space-around;
+  padding: 20px 0px;
+
+}
+.footer-bottom ul :nth-child(1){
+  order: 1;
+}
+.footer-bottom ul :nth-child(2){
+  order: 3;
+}
+.footer-bottom ul :nth-child(3){
+  order: 2;
+}
+.footer-bottom ul :nth-child(4){
+  order: 4;
+}
+.footer-bottom ul :nth-child(5){
+  order: 5;
+}
+.footer-bottom ul :nth-child(6){
+  order: 7;
+}
+.footer-bottom ul :nth-child(7){
+  order: 6;
+}
+.footer-bottom ul :nth-child(8){
+  order: 8;
+}
+.footer-bottom ul :nth-child(9){
+  order: 9;
+}
+.footer-bottom ul :nth-child(10){
+  order: 10;
+}
+.footer-bottom ul li:last-child{
+  grid-column: 2/4;
+}
+
+}
